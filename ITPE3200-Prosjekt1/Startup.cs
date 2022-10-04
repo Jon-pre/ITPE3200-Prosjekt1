@@ -1,8 +1,11 @@
+using ITPE3200_Prosjekt1.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +20,7 @@ namespace ITPE3200_Prosjekt1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<AksjeContext>(options => options.UseSqlite("Data Source=Aksje.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

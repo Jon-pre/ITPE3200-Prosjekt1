@@ -3,31 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+
 </head>
 <body>
     <div id="overskrift">
-        <div id="flex-overskrift">
             <h1>Tittel</h1>
-        </div>
-        <div id="flex-overskrift">
             <ul>
                 <li><a href="index.html">Hjem</a></li>
             </ul>
-        </div>
     </div>
     <div id="container">
         <div id="flex-container">
-            <table class="table table-dark">
-                <tr><th>aksje</th><th>pris</th><th>antall</th><th>Kjøp</th><th>selg</th></tr>
-                <tr><td>AMZN</td><td>100$</td><td><input type="text" /></td><td><button class="btn btn-danger">Kjøp</button></td><td><button class="btn btn-primary">Selg</button></td></tr>
-                <tr><td>APPL</td><td>100$</td><td><input type="text" /></td><td><button class="btn btn-danger">Kjøp</button></td><td><button class="btn btn-primary">Selg</button></td></tr>
-                <tr><td>TSLA</td><td>100$</td><td><input type="text" /></td><td><button class="btn btn-danger">Kjøp</button></td><td><button class="btn btn-primary">Selg</button></td></tr>
-                <tr><td>GOLD</td><td>100$</td><td><input type="text" /></td><td><button class="btn btn-danger">Kjøp</button></td><td><button class="btn btn-primary">Selg</button></td></tr>
-                <tr><td>SLVR</td><td>100$</td><td><input type="text" /></td><td><button class="btn btn-danger">Kjøp</button></td><td><button class="btn btn-primary">Selg</button></td></tr>
-                <tr><td>COPR</td><td>100$</td><td><input type="text" /></td><td><button class="btn btn-danger">Kjøp</button></td><td><button class="btn btn-primary">Selg</button></td></tr>
-            </table>
+            <div id="aksjer"></div>
         </div>
         <div id="flex-container">
             <table class=" table table-dark">
@@ -36,6 +27,8 @@
             </table>
         </div>
     </div>
-
+    <div id="footer">
+        <p>hei</p>
+    </div>
 </body>
 </html>
