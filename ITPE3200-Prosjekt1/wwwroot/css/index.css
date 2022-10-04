@@ -22,6 +22,7 @@ p{
     display:flex;
     flex-direction:row;
     background-color:lightgray;
+    justify-content:center;
 }
 #flex-overskrift{
     display:flex;
@@ -31,14 +32,17 @@ p{
     align-content:center;
     justify-content:center;
     width:100%;
+    text-align:center;
 }
 ul{
     list-style-type:none;
     background-color:aliceblue;
-    
+    text-align:center;
+    margin-top:auto;
 }
 li a{
     align-content:center;   
+    text-align:center;
 }
 
 li a:hover{
