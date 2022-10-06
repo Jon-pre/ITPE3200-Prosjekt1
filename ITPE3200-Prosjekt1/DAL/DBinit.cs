@@ -1,15 +1,16 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using ITPE3200_Prosjekt1.Model;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ITPE3200_Prosjekt1.DAL
 {
-    public class DBinit
+    public static class DBinit
     {
         public static void Initialize(IApplicationBuilder app)
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetService<AksjeDB>();
+                var context = serviceScope.ServiceProvider.GetService<AksjeContext>();
 
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
