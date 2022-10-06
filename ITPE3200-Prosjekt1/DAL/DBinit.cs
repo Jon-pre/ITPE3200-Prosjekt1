@@ -4,13 +4,13 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ITPE3200_Prosjekt1.DAL
 {
-    public static class DBinit
+    public class DBinit
     {
         public static void Initialize(IApplicationBuilder app)
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetService<AksjeContext>();
+                var context = serviceScope.ServiceProvider.GetService<AksjeDB>();
 
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();

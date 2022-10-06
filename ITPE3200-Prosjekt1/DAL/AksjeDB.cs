@@ -13,9 +13,9 @@ namespace ITPE3200_Prosjekt1.DAL
         public int pris { get; set; }
         public int prosent { get; set; }
     }
-    public class AksjeContext : DbContext
+    public class AksjeDB : DbContext
     {
-        public AksjeContext(DbContextOptions<AksjeContext> options) : base(options)
+        public AksjeDB(DbContextOptions<AksjeDB> options) : base(options)
         {
             Database.EnsureCreated();
         }
