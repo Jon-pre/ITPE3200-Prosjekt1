@@ -20,7 +20,9 @@ namespace ITPE3200_Prosjekt1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<AksjeContext>(options => options.UseSqlite("Data Source=Aksje.db"));
+            services.AddDbContext<AksjeDB>(options => options.UseSqlite("Data Source=Aksje.db"));
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddScoped<IAksjeRepo, AksjeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,6 +31,7 @@ namespace ITPE3200_Prosjekt1
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                DBinit.Initialize(app);
             }
 
             app.UseRouting();

@@ -6,12 +6,13 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace ITPE3200_Prosjekt1.DAL
+
 {
     public class AksjeRepository : IAksjeRepo
     {
-        private readonly AksjeContext _db;
+        private readonly AksjeDB _db;
 
-        public AksjeRepository(AksjeContext db)
+        public AksjeRepository(AksjeDB db)
         {
             _db = db;
         }

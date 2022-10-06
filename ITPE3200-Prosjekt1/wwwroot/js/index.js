@@ -3,23 +3,24 @@
 });
 
 function hentAlle() {
-    $.get("Aksje/hentAlle", function (aksjer) {
+    $.get("aksje/hentAlle", function (aksjer) {
         formaterAlle(aksjer);
     });
 }
 
 
 function formaterAlle(aksjer) {
-    let ut = "<Table class='table table-dark'>" +
-        "<tr><th>Navn</th><th>pris</th><th>prosent</th><th>Kjøp</th></tr>";
+    let ut = "<table class='table table-dark'>" +
+        "<tr><th>Navn</th><th>pris</th><th>prosent</th><th>Kjøp</th><th>Selg</th></tr>";
 
-    for (let aksje in aksjer) {
+    for (let aksje of aksjer) {
         ut += "<tr>"+
             "<td>" + aksje.navn + "</td>" +
             "<td>" + aksje.pris + "</td>" +
             "<td>" + aksje.prosent + "</td>" +
-            "<td> <a class='btn btn-primary' onclick='kjøpaksje(" + aksje.id + ")'</td>" +
-            "<tr>"
+            "<td> <a class='btn btn-primary' onclick='kjøpAksje(" + aksje.id + ")'>Klikk meg</a></td>" +
+            "<td> <a class='btn btn-danger' onclick='selgAksje("+ aksje.id + ")'>Klikk meg</a></td>" + 
+            "</tr>"
            
     }
     ut += "</table"
