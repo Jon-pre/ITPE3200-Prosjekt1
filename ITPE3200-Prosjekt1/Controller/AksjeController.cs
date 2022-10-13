@@ -22,7 +22,15 @@ namespace ITPE3200_Prosjekt1.Controller
         {
             return await _db.hentAlle();
         }
-
         
+        public async Task<List<Konto>> hentAlleKontoer()
+        {
+            return await _db.hentAlleKontoer();
+        }
+
+        public async Task<Aksje> hent(int id)
+        {
+            return await _db.hent(id);
+        }
     }
 }
