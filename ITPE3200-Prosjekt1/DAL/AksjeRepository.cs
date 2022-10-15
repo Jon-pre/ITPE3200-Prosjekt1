@@ -1,7 +1,9 @@
 ﻿using ITPE3200_Prosjekt1.Model;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -69,6 +71,24 @@ namespace ITPE3200_Prosjekt1.DAL
             };
             return hentetAksje;
         }
+
+        public async Task<bool> kjop(Konto konto)
+        {
+            try
+            {
+                var endreKonto = await _db.Kontoer.FindAsync(konto.id);
+                endreKonto.navn = konto.navn;
+                endreKonto.land = konto.land;
+                endreKonto.kontobalanse = konto.kontobalanse;
+                return true;
+            }
+            catch(IOException e)
+            {
+                Console.WriteLine( e.Message);
+                return false;
+            }
+        }
+       
 
 
     }

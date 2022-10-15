@@ -32,5 +32,10 @@ namespace ITPE3200_Prosjekt1.Controller
         {
             return await _db.hent(id);
         }
+
+        public async Task<bool> kjop(Konto konto)
+        {
+            return await _db.kjop(konto);
+        }
     }
 }

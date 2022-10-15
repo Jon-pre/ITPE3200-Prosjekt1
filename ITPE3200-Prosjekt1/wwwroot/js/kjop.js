@@ -28,9 +28,9 @@ function formaterKontoer(kontoer) {
 
     for (let konto of kontoer) {
         ut += "<tr>";
-        ut += "<td>" + konto.navn + "</td>" +
-              "<td>" + konto.land + "</td>" +
-              "<td>" + konto.kontobalanse + "</td>" +
+        ut += "<td id='navn'>" + konto.navn + "</td>" +
+              "<td id='land'>" + konto.land + "</td>" +
+              "<td id='kontobalanse'>" + konto.kontobalanse+"</td>" +
               "</tr>"
     }
     ut += "</table>"
@@ -38,7 +38,30 @@ function formaterKontoer(kontoer) {
 }
 
 function kjopAksje() {
-    const id = window.location.search.substring(1);
-    const url = "aksje/hent?" + id;
-
+    let antall = $("#antall").val();
+    let pris = parseInt($("#pris").text());
+    let sum = antall * pris;
+    console.log($("#kontobalanse").text());
+    let kontosum = parseInt($("#kontobalanse").text());
+    let kontobalanse = kontosum - sum;
+    console.log(kontobalanse)
+    kontobalanse = kontobalanse.toString();
+    console.log(kontobalanse)
+    
+    const konto = {
+        navn: $("#navn").text(),
+        land: $("#land").text(),
+        kontobalanse: kontobalanse
+    };
+    console.log(konto);
+        
+    $.post("aksje/kjop", konto, ok => {
+        if (ok) {
+            alert("Suksess!");
+        } else {
+            alert("Feil i db D:");
+        }
+    });
+    
 }
+
