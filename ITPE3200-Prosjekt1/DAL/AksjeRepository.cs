@@ -80,13 +80,14 @@ namespace ITPE3200_Prosjekt1.DAL
                 endreKonto.navn = konto.navn;
                 endreKonto.land = konto.land;
                 endreKonto.kontobalanse = konto.kontobalanse;
-                return true;
+                await _db.SaveChangesAsync();
             }
             catch(IOException e)
             {
                 Console.WriteLine( e.Message);
                 return false;
             }
+            return true;
         }
        
 

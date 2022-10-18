@@ -23,17 +23,18 @@ function hentAlleKontoer() {
 function formaterKontoer(kontoer) {
     ut = "<table class='table table-dark'>" +
         "<tr>" +
-        "<th>navn</th><th>land</th><th>KontoBalanse</th>" +
+        "<th>id</th><th>navn</th><th>land</th><th>KontoBalanse</th>" +
         "</tr>"
 
     for (let konto of kontoer) {
-        ut += "<tr>";
-        ut += "<td id='navn'>" + konto.navn + "</td>" +
+        ut += "<tr>"+
+              "<td id='id2'>"+konto.id+"</td>"+
+              "<td id='navnKonto'>" + konto.navn + "</td>" +
               "<td id='land'>" + konto.land + "</td>" +
-              "<td id='kontobalanse'>" + konto.kontobalanse+"</td>" +
-              "</tr>"
+              "<td id='kontobalanse'>" + konto.kontobalanse + "</td>" +
+              "</tr>";
     }
-    ut += "</table>"
+    ut += "</table>";
     $("#konto").html(ut)
 }
 
@@ -44,12 +45,12 @@ function kjopAksje() {
     console.log($("#kontobalanse").text());
     let kontosum = parseInt($("#kontobalanse").text());
     let kontobalanse = kontosum - sum;
-    console.log(kontobalanse)
     kontobalanse = kontobalanse.toString();
-    console.log(kontobalanse)
-    
+    let id = $("#id2").text();
+    console.log(id);
     const konto = {
-        navn: $("#navn").text(),
+        id: $("#id2").text(),
+        navn: $("#navnKonto").text(),
         land: $("#land").text(),
         kontobalanse: kontobalanse
     };
