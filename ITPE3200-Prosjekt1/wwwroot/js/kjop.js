@@ -45,24 +45,30 @@ function kjopAksje() {
     console.log($("#kontobalanse").text());
     let kontosum = parseInt($("#kontobalanse").text());
     let kontobalanse = kontosum - sum;
-    kontobalanse = kontobalanse.toString();
-    let id = $("#id2").text();
-    console.log(id);
-    const konto = {
-        id: $("#id2").text(),
-        navn: $("#navnKonto").text(),
-        land: $("#land").text(),
-        kontobalanse: kontobalanse
-    };
-    console.log(konto);
+    console.log(kontobalanse);
+    if (kontobalanse < 0) {
+        alert("Ikke nok penger");
+    } else {
         
-    $.post("aksje/kjop", konto, ok => {
-        if (ok) {
-            console.log("OK");
-        } else {
-            alert("Feil i db D:");
-        }
-    });
-    
+        kontobalanse = kontobalanse.toString();
+        let id = $("#id2").text();
+        console.log(id);
+        const konto = {
+            id: $("#id2").text(),
+            navn: $("#navnKonto").text(),
+            land: $("#land").text(),
+            kontobalanse: kontobalanse
+        };
+        console.log(konto);
+
+
+        $.post("aksje/kjop", konto, ok => {
+            if (ok) {
+                console.log("OK");
+            } else {
+                alert("Feil i db D:");
+            }
+        });
+    }
 }
 

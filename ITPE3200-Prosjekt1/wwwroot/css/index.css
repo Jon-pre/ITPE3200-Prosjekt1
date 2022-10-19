@@ -48,7 +48,8 @@ nav .btn {
 }
 
     .overskrift h1 {
-        font-size: 88px margin-bottom: 15px;
+        font-size: 88px ;
+        margin-bottom: 15px;
     }
 
     .overskrift p {
@@ -59,19 +60,27 @@ nav .btn {
         color: orange;
     }
 footer {
-    padding: 0.1%;
+    background-color: #157e3d;
+    padding: 5rem;
+    color: #ffffff;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 0;
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    height: 2.5rem;
 }
 
-    footer p {
-        font-size: 15px;
-        color: white;
+    footer a {
+        color: #ffffff;
+    }
+    footer a:hover {
+            color: #090808;
+            background-color: #f8f6f6;
+            font-weight: bold;
+        }
+
+    .scrollable{
+        overflow:auto;
+        width:100%;
+        height:14rem;
+        margin-bottom: 1rem;
     }
 
 /*
