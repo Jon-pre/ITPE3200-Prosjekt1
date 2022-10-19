@@ -58,7 +58,7 @@ function kjopAksje() {
         
     $.post("aksje/kjop", konto, ok => {
         if (ok) {
-            alert("Suksess!");
+            console.log("OK");
         } else {
             alert("Feil i db D:");
         }
