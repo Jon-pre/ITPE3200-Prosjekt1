@@ -21,10 +21,10 @@ namespace ITPE3200_Prosjekt1.DAL
                 var Askje4 = new Aksjer { navn = "TSLA", pris = 10, prosent = 1 };
                 var Askje5 = new Aksjer { navn = "GOOGL", pris = 10, prosent = 1 };
                 var Askje6 = new Aksjer { navn = "AMAZN", pris = 10, prosent = 1 };
-                var Askje7 = new Aksjer { navn = "TSLA", pris = 10, prosent = 1 };
+                var Askje7 = new Aksjer { navn = "TSLA", pris = 10, prosent = 1  };
                 var Askje8 = new Aksjer { navn = "GOOGL", pris = 10, prosent = 1 };
                 var Askje9 = new Aksjer { navn = "AMAZN", pris = 10, prosent = 1 };
-                var Askje10 = new Aksjer { navn = "TSLA", pris = 10, prosent = 1 };
+                var Askje10 = new Aksjer{ navn = "TSLA", pris = 10, prosent = 1 };
                 var Askje11= new Aksjer { navn = "GOOGL", pris = 10, prosent = 1 };
                 var Askje12= new Aksjer { navn = "AMAZN", pris = 10, prosent = 1 };
 

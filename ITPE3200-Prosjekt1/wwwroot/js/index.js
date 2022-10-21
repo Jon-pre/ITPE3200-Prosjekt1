@@ -20,7 +20,7 @@ function formaterAlle(aksjer) {
             "<td>" + aksje.pris + "</td>" +
             "<td>" + aksje.prosent + "</td>" +
             "<td> <a class='btn btn-primary' href='kjop.html?id=" + aksje.id+"'>Kjøp</a ></td > " +
-            "<td> <a class='btn btn-danger' onclick='selgAksje("+ aksje.id + ")'>Selg</a></td>" + 
+            "<td> <a class='btn btn-danger' href='selg.html?id="+ aksje.id + "'>Selg</a></td>" + 
             "</tr>"
            
     }
