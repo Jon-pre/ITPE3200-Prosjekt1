@@ -97,5 +97,6 @@ function kjopAksje() {
             }
         });
     }
+    $("#kontobalanse").html(kontobalanse);
 }
 

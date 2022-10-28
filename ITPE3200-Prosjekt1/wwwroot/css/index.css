@@ -84,6 +84,7 @@ footer {
         }
 
     .scrollable{
+        display:flex;
         overflow:auto;
         width:100%;
         height:14rem;
