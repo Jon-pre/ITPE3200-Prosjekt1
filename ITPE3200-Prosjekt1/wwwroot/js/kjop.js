@@ -4,11 +4,38 @@
     const url = "aksje/hent?" + id;
 
     $.get(url, function (aksjer) {
-        $("#id").val(aksjer.id);
-        $("#navn").text(aksjer.navn);
-        $("#pris").text(aksjer.pris);
-        $("#prosent").text(aksjer.prosent);
+        let aksjeid = $("#id").val(aksjer.id);
+        
+        let aksjenavn = $("#navn").text(aksjer.navn);
+        
+        let aksjepris = $("#pris").text(aksjer.pris);
+       
+        let aksjeprosent = $("#prosent").text(aksjer.prosent);
+        /*
+        askjeid = JSON.stringify(aksjeid);
+        aksjenavn = aksjenavn.toString();
+        aksjepris = aksjepris.toString();
+        aksjeprosent = aksjeprosent.toString();
+        console.log(askjeid);
+        askjeid = JSON.parse(JSON.parse(aksjeid));
+        console.log(aksjeid);
+        
+        if (typeof (Storage) !== "undefined") {
+            localStorage.setItem("idaksje", aksjeid);
+            localStorage.setItem("navnaksje", aksjenavn);
+            localStorage.setItem("prisaksje", aksjepris);
+            localStorage.setItem("prosentaksje", aksjeprosent);
+
+            document.getElementById("id").innerHTML = localStorage.getItem("idaksje");
+            document.getElementById("navn").innerHTML = localStorage.getItem("navnaksje");
+            document.getElementById("pris").innerHTML = localStorage.getItem("prisaksje");
+            document.getElementById("prosent").innerHTML = localStorage.getItem("prosentaksje");
+        } else {
+            console.log("Her gikk noe galt");
+        }
+        */
     });
+    
 });
 
 
@@ -64,7 +91,7 @@ function kjopAksje() {
 
         $.post("aksje/kjop", konto, ok => {
             if (ok) {
-                console.log("OK");
+               console.log("hei");
             } else {
                 alert("Feil i db D:");
             }
