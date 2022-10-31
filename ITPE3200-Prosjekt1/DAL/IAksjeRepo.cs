@@ -10,5 +10,6 @@ namespace ITPE3200_Prosjekt1.DAL
         Task<Aksje> hent(int id);
         Task<List<Konto>> hentAlleKontoer();
         Task<bool> kjop(Konto konto);
+        Task<bool> Slett(int id);
     }
 }

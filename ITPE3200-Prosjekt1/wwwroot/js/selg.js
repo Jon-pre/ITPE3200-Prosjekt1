@@ -3,17 +3,12 @@
     const id = window.location.search.substring(1);
     const url = "aksje/hent?" + id;
 
-
-    
     $.get(url, function (aksjer) {
         $("#id").val(aksjer.id);
         $("#navn").text(aksjer.navn);
         $("#pris").text(aksjer.pris);
-        $("#prosent").text(aksjer.prosent);
-        
+        $("#prosent").text(aksjer.prosent);  
     });
-
-   
 });
 
 
@@ -71,7 +66,7 @@ function selgAksje() {
 
         $.post("aksje/kjop", konto, ok => {
             if (ok) {
-                console.log(ok);
+                window.location.href = "index.html";
             } else {
                 alert("Feil i db D:");
             }

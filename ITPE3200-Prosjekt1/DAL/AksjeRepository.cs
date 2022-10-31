@@ -89,6 +89,20 @@ namespace ITPE3200_Prosjekt1.DAL
             }
             return true;
         }
+        public async Task<bool> Slett(int id)
+        {
+            try
+            {
+                Aksjer enAksje = await _db.Aksjer.FindAsync(id);
+                _db.Aksjer.Remove(enAksje);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
        
 
 

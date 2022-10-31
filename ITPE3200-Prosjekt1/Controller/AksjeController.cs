@@ -37,5 +37,9 @@ namespace ITPE3200_Prosjekt1.Controller
         {
             return await _db.kjop(konto);
         }
+        public async Task<bool> Slett(int id)
+        {
+            return await _db.Slett(id);
+        }
     }
 }

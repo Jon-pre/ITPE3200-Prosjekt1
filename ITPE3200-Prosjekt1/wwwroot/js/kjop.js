@@ -91,7 +91,7 @@ function kjopAksje() {
 
         $.post("aksje/kjop", konto, ok => {
             if (ok) {
-               console.log("hei");
+                window.location.href = "index.html";
             } else {
                 alert("Feil i db D:");
             }
