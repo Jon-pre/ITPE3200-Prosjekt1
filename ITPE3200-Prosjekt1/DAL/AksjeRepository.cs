@@ -89,8 +89,32 @@ namespace ITPE3200_Prosjekt1.DAL
             }
             return true;
         }
-       
+        public async Task<Konto> hentKonto(int id)
+        {
+            Kontoer enKonto = await _db.Kontoer.FindAsync(id);
+            var hentetKonto = new Konto()
+            {
+                id = enKonto.id,
+                navn = enKonto.navn,
+                land = enKonto.land,
+            };
+            return hentetKonto;
+        }
 
-
+        public async Task<bool> Endre(Konto konto)
+        {
+            try
+            {
+                var konto1 = await _db.Kontoer.FindAsync(konto.id);
+                konto1.navn = konto.navn;
+                konto1.land = konto.land;
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
