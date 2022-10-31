@@ -1,4 +1,4 @@
-﻿using ITPE3200_Prosjekt1.DAL;
+using ITPE3200_Prosjekt1.DAL;
 using ITPE3200_Prosjekt1.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +46,9 @@ namespace ITPE3200_Prosjekt1.Controller
         public async Task<Konto> hentKonto(int id)
         {
             return await _db.hentKonto(id);
+        public async Task<bool> Slett(int id)
+        {
+            return await _db.Slett(id);
         }
     }
 }

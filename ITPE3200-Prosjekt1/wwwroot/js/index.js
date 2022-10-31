@@ -15,17 +15,30 @@ function formaterAlle(aksjer) {
         "<tr><th>Navn</th><th>pris</th><th>prosent</th><th>Kjøp</th><th>Selg</th></tr>";
 
     for (let aksje of aksjer) {
-        ut += "<tr>"+
+        ut += "<tr>" +
             "<td>" + aksje.navn + "</td>" +
             "<td>" + aksje.pris + "</td>" +
             "<td>" + aksje.prosent + "</td>" +
-            "<td> <a class='btn btn-primary' href='kjop.html?id=" + aksje.id+"'>Kjøp</a ></td > " +
-            "<td> <a class='btn btn-danger' href='selg.html?id="+ aksje.id + "'>Selg</a></td>" + 
-            "</tr>"
+            "<td> <a class='btn btn-primary' href='kjop.html?id=" + aksje.id + "'>Kjøp</a ></td > " +
+            "<td> <a class='btn btn-danger' href='selg.html?id=" + aksje.id + "'>Selg</a></td>" +
+            "<td> <button class='btn btn-warning' onclick='slettAksje("+aksje.id+")'>Fjern</button></td>" +
+            "</tr>";
            
     }
-    ut += "</table"
+    ut += "</table";
        $("#aksjer").html(ut);
+}
+
+function slettAksje(id) {
+    const url = "aksje/Slett?id=" + id;
+    console.log(url);
+    $.get(url, function(OK) {
+        if(OK){
+            window.location.href="index.html";
+        }else {
+            alert("Noe gikk galt");
+        }
+    });
 }
 
 function hentAlleKontoer() {
@@ -51,3 +64,4 @@ function formaterKontoer(kontoer) {
 
     $("#konto").html(ut2);
 }
+

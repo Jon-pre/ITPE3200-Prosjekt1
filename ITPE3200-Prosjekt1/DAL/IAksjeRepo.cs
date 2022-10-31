@@ -12,5 +12,6 @@ namespace ITPE3200_Prosjekt1.DAL
         Task<bool> kjop(Konto konto);
         Task<bool> Endre(Konto konto);
         Task<Konto> hentKonto(int id);
+        Task<bool> Slett(int id);
     }
 }

@@ -59,6 +59,13 @@ nav .btn {
     .overskrift h1 span {
         color: orange;
     }
+    .overskrift .btn {
+        margin: 30px;
+        background-color: orange; 
+    }
+    .overskrift .btn:hover{
+        color: coral;
+    }
 footer {
     background-color: #157e3d;
     padding: 5rem;
@@ -77,10 +84,11 @@ footer {
         }
 
     .scrollable{
+        display:flex;
         overflow:auto;
         width:100%;
         height:14rem;
-        margin-bottom: 1rem;
+        margin-bottom:1rem;
     }
 
 /*
