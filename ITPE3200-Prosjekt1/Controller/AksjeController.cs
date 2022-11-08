@@ -1,5 +1,7 @@
+using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
 using ITPE3200_Prosjekt1.DAL;
 using ITPE3200_Prosjekt1.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace ITPE3200_Prosjekt1.Controller
     public class AksjeController : ControllerBase
     {
         private readonly IAksjeRepo _db;
+        private const string _loggetInn = "LoggetInn";
 
         public AksjeController(IAksjeRepo db)
         {
@@ -30,6 +33,7 @@ namespace ITPE3200_Prosjekt1.Controller
 
         public async Task<Aksje> hent(int id)
         {
+          
             return await _db.hent(id);
         }
 
@@ -42,13 +46,25 @@ namespace ITPE3200_Prosjekt1.Controller
         {
             return await _db.Endre(konto);
         }
-        
+
         public async Task<Konto> hentKonto(int id)
         {
             return await _db.hentKonto(id);
+        }
         public async Task<bool> Slett(int id)
         {
             return await _db.Slett(id);
+        }
+        public async Task<ActionResult> logInn(Konto konto)
+        {
+            bool returnOk = await _db.logInn(konto);
+            if (!returnOk)
+            {
+                HttpContext.Session.SetString(_loggetInn, "");
+                return Ok(false);
+            }
+            HttpContext.Session.SetString(_loggetInn,"LoggetInn");
+            return Ok(true);
         }
     }
 }

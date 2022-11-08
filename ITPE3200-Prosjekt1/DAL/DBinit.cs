@@ -45,6 +45,15 @@ namespace ITPE3200_Prosjekt1.DAL
 
                 context.Kontoer.Add(Konto1);
 
+                var konto = new Kontoer();
+                konto.brukernavn = "admin";
+                var passord = "test";
+                byte[] salt = AksjeRepository.lagSalt();
+                byte[] hash = AksjeRepository.lagHash(passord, salt);
+                konto.passord = hash;
+                konto.salt = salt;
+                context.Kontoer.Add(konto);
+
                 context.SaveChanges();
 
             }

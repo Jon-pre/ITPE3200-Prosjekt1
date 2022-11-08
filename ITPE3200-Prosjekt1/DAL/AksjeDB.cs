@@ -20,6 +20,10 @@ namespace ITPE3200_Prosjekt1.DAL
         public string navn { get; set; }
         public string land { get; set; }
         public int kontobalanse { get; set; }
+
+        public string brukernavn { get; set; }
+        public byte[] passord { get; set; }
+        public byte[] salt { get; set; }
     }
     public class AksjeDB : DbContext
     {

@@ -23,6 +23,14 @@ namespace ITPE3200_Prosjekt1
             services.AddDbContext<AksjeDB>(options => options.UseSqlite("Data Source=Aksje.db"));
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddScoped<IAksjeRepo, AksjeRepository>();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(1800);
+                options.Cookie.IsEssential = true;
+            });
+            services.AddDistributedMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,7 +41,7 @@ namespace ITPE3200_Prosjekt1
                 app.UseDeveloperExceptionPage();
                 DBinit.Initialize(app);
             }
-
+            app.UseSession();
             app.UseRouting();
             app.UseStaticFiles();
 
