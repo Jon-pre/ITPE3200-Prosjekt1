@@ -1,4 +1,5 @@
 ﻿using ITPE3200_Prosjekt1.Model;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace ITPE3200_Prosjekt1.DAL
@@ -129,6 +131,43 @@ namespace ITPE3200_Prosjekt1.DAL
             }
             catch
             {
+                return false;
+            }
+        }
+        public static byte[] lagHash(String passord, byte[] salt)
+        {
+            return KeyDerivation.Pbkdf2(
+                                 password: passord,
+                                 salt: salt,
+                                 prf: KeyDerivationPrf.HMACSHA512,
+                                 iterationCount: 1000,
+                                 numBytesRequested: 32);
+        }
+
+        public static byte[] lagSalt()
+        {
+            var csp = new RNGCryptoServiceProvider();
+            var salt = new byte[24];
+            csp.GetBytes(salt);
+            return salt;
+        }
+
+        public async Task<bool> logInn(Konto konto)
+        {
+            try
+            {
+                Kontoer funnetKonto = await _db.Kontoer.FirstOrDefaultAsync(b => b.brukernavn == konto.brukernavn);
+
+                byte[] hash = lagHash(konto.passord, funnetKonto.salt);
+                bool ok = hash.SequenceEqual(funnetKonto.passord);
+                if (ok)
+                {
+                    return true;
+                }
+                return false;
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
                 return false;
             }
         }
