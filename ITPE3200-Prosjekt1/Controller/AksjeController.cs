@@ -42,10 +42,11 @@ namespace ITPE3200_Prosjekt1.Controller
         {
             return await _db.Endre(konto);
         }
-        
+
         public async Task<Konto> hentKonto(int id)
         {
             return await _db.hentKonto(id);
+        }
         public async Task<bool> Slett(int id)
         {
             return await _db.Slett(id);

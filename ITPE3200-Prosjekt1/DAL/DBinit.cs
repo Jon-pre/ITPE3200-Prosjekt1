@@ -15,18 +15,18 @@ namespace ITPE3200_Prosjekt1.DAL
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
 
-                var Askje1 = new Aksjer { navn = "TSLA", pris = 10, prosent = 1 };
-                var Askje2 = new Aksjer { navn = "GOOGL", pris = 10, prosent = 1 };
-                var Askje3 = new Aksjer { navn = "AMAZN", pris = 10, prosent = 1 };
-                var Askje4 = new Aksjer { navn = "TSLA", pris = 10, prosent = 1 };
-                var Askje5 = new Aksjer { navn = "GOOGL", pris = 10, prosent = 1 };
-                var Askje6 = new Aksjer { navn = "AMAZN", pris = 10, prosent = 1 };
-                var Askje7 = new Aksjer { navn = "TSLA", pris = 10, prosent = 1  };
-                var Askje8 = new Aksjer { navn = "GOOGL", pris = 10, prosent = 1 };
-                var Askje9 = new Aksjer { navn = "AMAZN", pris = 10, prosent = 1 };
-                var Askje10 = new Aksjer{ navn = "TSLA", pris = 10, prosent = 1 };
-                var Askje11= new Aksjer { navn = "GOOGL", pris = 10, prosent = 1 };
-                var Askje12= new Aksjer { navn = "AMAZN", pris = 10, prosent = 1 };
+                var Askje1 = new Aksjer { navn = "TSLA", pris = 1000, prosent = 19 };
+                var Askje2 = new Aksjer { navn = "GOOGL", pris = 100, prosent = -1 };
+                var Askje3 = new Aksjer { navn = "AMAZN", pris = 231, prosent = -2 };
+                var Askje4 = new Aksjer { navn = "NFLX", pris = 295, prosent = -3 };
+                var Askje5 = new Aksjer { navn = "APPL", pris = 155, prosent = 13 };
+                var Askje6 = new Aksjer { navn = "MSFT", pris = 145, prosent = 41 };
+                var Askje7 = new Aksjer { navn = "XOM", pris = 99, prosent = 1  };
+                var Askje8 = new Aksjer { navn = "JNJ", pris = 174, prosent = 17 };
+                var Askje9 = new Aksjer { navn = "V", pris = 209, prosent = 15 };
+                var Askje10 = new Aksjer{ navn = "CVX", pris = 179, prosent = 11 };
+                var Askje11= new Aksjer { navn = "NVDA", pris = 138, prosent = 2 };
+                var Askje12= new Aksjer { navn = "LLY", pris = 359, prosent = 3 };
 
                 var Konto1 = new Kontoer { navn = "Petter", land = "Norge", kontobalanse = 100000 };
 

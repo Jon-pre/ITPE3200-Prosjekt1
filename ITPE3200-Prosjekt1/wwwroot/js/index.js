@@ -12,7 +12,7 @@ function hentAlle() {
 
 function formaterAlle(aksjer) {
     let ut = "<table class='table table-dark'>" +
-        "<tr><th>Navn</th><th>pris</th><th>prosent</th><th>Kjøp</th><th>Selg</th></tr>";
+        "<tr><th>Navn</th><th>pris</th><th>prosent</th><th>Kjøp</th><th>Selg</th><th>Fjern fra liste</th></tr>";
 
     for (let aksje of aksjer) {
         ut += "<tr>" +
