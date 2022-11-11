@@ -27,8 +27,10 @@ namespace ITPE3200_Prosjekt1.DAL
                 var Askje10 = new Aksjer{ navn = "CVX", pris = 179, prosent = 11 };
                 var Askje11= new Aksjer { navn = "NVDA", pris = 138, prosent = 2 };
                 var Askje12= new Aksjer { navn = "LLY", pris = 359, prosent = 3 };
-
-                var Konto1 = new Kontoer { navn = "Petter", land = "Norge", kontobalanse = 100000 };
+                var passord = "test";
+                byte[] salt = AksjeRepository.lagSalt();
+                byte[] hash = AksjeRepository.lagHash(passord, salt);
+                var Konto1 = new Kontoer { navn = "Petter", land = "Norge", kontobalanse = 100000, brukernavn="admin", passord= hash, salt=salt };
 
                 context.Aksjer.Add(Askje1);
                 context.Aksjer.Add(Askje2);
@@ -44,15 +46,6 @@ namespace ITPE3200_Prosjekt1.DAL
                 context.Aksjer.Add(Askje12);
 
                 context.Kontoer.Add(Konto1);
-
-                var konto = new Kontoer();
-                konto.brukernavn = "admin";
-                var passord = "test";
-                byte[] salt = AksjeRepository.lagSalt();
-                byte[] hash = AksjeRepository.lagHash(passord, salt);
-                konto.passord = hash;
-                konto.salt = salt;
-                context.Kontoer.Add(konto);
 
                 context.SaveChanges();
 
